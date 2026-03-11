@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyVoid - Обучение Python</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.0/full/pyodide.js"></script>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>PyVoid</h1>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-btn active" onclick="showPage('home')">Главная</button>
+                <button class="nav-btn" onclick="showPage('lessons')">Уроки</button>
+                <button class="nav-btn" onclick="showPage('editor')">Редактор</button>
+                <button class="nav-btn" onclick="showPage('test')">Тест</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Главная страница -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <h1>Изучайте Python<br><span class="highlight">Интерактивно</span></h1>
+                <p>Полный курс по основам Python с практическими примерами, встроенным редактором кода и финальным тестом.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="showPage('lessons')">Начать уроки</button>
+                    <button class="btn btn-secondary" onclick="showPage('editor')">Редактор кода</button>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Почему выбрать наш курс?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📚</div>
+                        <h3>5 Полных Уроков</h3>
+                        <p>От основ переменных до функций. Каждый урок содержит подробное объяснение и практические примеры.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💻</div>
+                        <h3>Редактор Кода</h3>
+                        <p>Встроенный Python редактор с поддержкой выполнения кода прямо в браузере.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <h3>Финальный Тест</h3>
+                        <p>Проверьте свои знания с помощью 10 вопросов и получите подробный анализ результатов.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="curriculum">
+                <h2>Содержание курса</h2>
+                <div class="curriculum-list">
+                    <div class="curriculum-item">
+                        <div class="curriculum-number">1</div>
+                        <div>
+                            <h4>Введение в Python и переменные</h4>
+                            <p>Основные типы данных и создание переменных</p>
+                        </div>
+                    </div>
+                    <div class="curriculum-item">
+                        <div class="curriculum-number">2</div>
+                        <div>
+                            <h4>Операции и выражения</h4>
+                            <p>Арифметические операции и операции сравнения</p>
+                        </div>
+                    </div>
+                    <div class="curriculum-item">
+                        <div class="curriculum-number">3</div>
+                        <div>
+                            <h4>Условные операторы</h4>
+                            <p>if, elif, else и логические операторы</p>
+                        </div>
+                    </div>
+                    <div class="curriculum-item">
+                        <div class="curriculum-number">4</div>
+                        <div>
+                            <h4>Циклы</h4>
+                            <p>Циклы for и while</p>
+                        </div>
+                    </div>
+                    <div class="curriculum-item">
+                        <div class="curriculum-number">5</div>
+                        <div>
+                            <h4>Функции</h4>
+                            <p>Определение и использование функций</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Страница уроков -->
+        <div id="lessons" class="page">
+            <div class="lessons-container">
+                <div class="lesson-content">
+                    <h2 id="lessonTitle">Урок 1: Введение в Python и переменные</h2>
+                    <p id="lessonProgress">Урок 1 из 5</p>
+                    <div id="lessonText" class="lesson-text"></div>
+                    
+                    <div class="examples-section">
+                        <h3>Примеры кода:</h3>
+                        <div class="example-buttons">
+                            <button class="example-btn active" onclick="showExample(0)">Пример 1</button>
+                            <button class="example-btn" onclick="showExample(1)">Пример 2</button>
+                        </div>
+                        <pre id="exampleCode" class="code-block"></pre>
+                    </div>
+
+                    <div class="lesson-navigation">
+                        <button class="btn btn-outline" id="prevBtn" onclick="previousLesson()" disabled>← Предыдущий</button>
+                        <button class="btn btn-outline" id="nextBtn" onclick="nextLesson()">Следующий →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Страница редактора -->
+        <div id="editor" class="page">
+            <div class="editor-container">
+                <div class="editor-header">
+                    <h2>Python Редактор Кода</h2>
+                    <p>Напишите и выполните свой Python код прямо в браузере</p>
+                </div>
+
+                <div class="editor-grid">
+                    <div class="editor-section">
+                        <label>Код:</label>
+                        <textarea id="codeInput" class="code-input" placeholder="Напишите свой Python код здесь...">
+# Напишите свой код здесь
+print("Привет, мир!")
+x = 10
+y = 20
+print(x + y)</textarea>
+                        <div class="editor-buttons">
+                            <button class="btn btn-success" id="runBtn" onclick="runCode()">▶ Выполнить</button>
+                            <button class="btn btn-outline" onclick="resetCode()">↻ Сброс</button>
+                            <button class="btn btn-outline" onclick="copyCode()">📋 Копировать</button>
+                        </div>
+                    </div>
+
+                    <div class="editor-section">
+                        <label>Вывод:</label>
+                        <div id="output" class="code-output">Вывод появится здесь...</div>
+                    </div>
+                </div>
+
+                <div class="editor-info">
+                    💡 Совет: Используйте функцию print() для вывода результатов. Код выполняется в изолированной среде в вашем браузере.
+                </div>
+            </div>
+        </div>
+
+        <!-- Страница теста -->
+        <div id="test" class="page">
+            <div class="test-container">
+                <div id="testContent">
+                    <h2>Финальный тест</h2>
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                    </div>
+                    <p id="questionNumber">Вопрос 1 из 10</p>
+
+                    <div id="questionContainer" class="question-container">
+                        <h3 id="questionText"></h3>
+                        <div id="optionsContainer" class="options-container"></div>
+                    </div>
+
+                    <div class="test-buttons">
+                        <button class="btn btn-outline" id="testPrevBtn" onclick="previousQuestion()" disabled>← Предыдущий</button>
+                        <button class="btn btn-primary" id="testNextBtn" onclick="nextQuestion()">Следующий →</button>
+                    </div>
+                </div>
+
+                <div id="resultsContent" style="display: none;">
+                    <h2>Результаты теста</h2>
+                    <div class="results-score">
+                        <div id="scorePercentage" class="score-percentage">0%</div>
+                        <p id="scoreText">Вы ответили правильно на 0 из 10 вопросов</p>
+                        <p id="scoreMessage"></p>
+                    </div>
+
+                    <div id="resultsList" class="results-list"></div>
+
+                    <button class="btn btn-primary" onclick="resetTest()">↻ Пройти тест заново</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <p>© 2026 PyLearn. Интерактивный курс по Python. Все права защищены.</p>
+    </footer>
+
+    <script src="lessons.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
