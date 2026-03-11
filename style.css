@@ -10,13 +10,12 @@
     --secondary: #f97316;
     --success: #22c55e;
     --danger: #ef4444;
-    --surface: #160045;
+    background-image: url(https://i.redd.it/lht1w6kvjan81.jpg);
     --text: #ed00ff;
     --text-light: #b701ed;
     --border: #464646;
     --radius: 8px;
-    background-image: url(https://i.redd.it/lht1w6kvjan81.jpg)
-}
+    --surface: #160045;
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
