@@ -5,14 +5,14 @@
 }
 
 :root {
-    --primary: #690fcf;
-    --primary-dark: #1e40af;
+    --primary: #801af5;
+    --primary-dark: #5900ff;
     --secondary: #f97316;
     --success: #22c55e;
     --danger: #ef4444;
-    --background: #444444;
-    --surface: #424242;
-    --text: #1e293b;
+    --background: #303030;
+    --surface: #292929;
+    --text: #ffffff;
     --text-light: #64748b;
     --border: #464646;
     --radius: 8px;
@@ -637,3 +637,4 @@ body {
         width: 100%;
     }
 }
+
