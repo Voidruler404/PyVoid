@@ -1,0 +1,370 @@
+:root {
+    --primary: #690fcf;
+    --primary-dark :#381eaf;
+    --secondary: #f97316;
+    --success: #22c55e;
+    --danger: #ef4444;
+    --background: #690fcf;
+    --text: #ffffff;
+    --text-light: #ffffff;
+    --border: #3811d8;
+    --radius: 12px;
+    --surface: #2c0978;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('img/lht1w6kvjan81.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* Навигация */
+.navbar {
+    background-color: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-brand h1 {
+    font-size: 24px;
+    margin: 0;
+    color: var(--primary);
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-btn {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+}
+
+.nav-btn.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* Страницы */
+.page {
+    display: none;
+    padding: 40px 0;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Кнопки */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary { background-color: var(--primary); color: white; }
+.btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-1px); }
+
+.btn-secondary { background-color: var(--surface); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background-color: var(--border); }
+
+.btn-success { background-color: var(--success); color: white; }
+.btn-success:hover { opacity: 0.9; }
+
+.btn-outline { background-color: transparent; color: var(--text); border: 2px solid var(--primary); }
+.btn-outline:hover { background-color: var(--primary); color: white; }
+
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+/* Главная страница */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.highlight { color: var(--primary); }
+
+.hero p {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.features { padding: 40px 0; }
+.features h2 { text-align: center; margin-bottom: 40px; }
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background-color: var(--surface);
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.feature-icon { font-size: 40px; margin-bottom: 15px; }
+
+/* Содержание */
+.curriculum { padding: 40px 0; }
+.curriculum h2 { text-align: center; margin-bottom: 30px; }
+.curriculum-list { display: grid; gap: 12px; max-width: 700px; margin: 0 auto; }
+
+.curriculum-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 18px;
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.curriculum-item:hover {
+    border-color: var(--primary);
+    transform: translateX(4px);
+    background-color: #2d3748;
+}
+
+.curriculum-number {
+    background-color: var(--primary);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.curriculum-test {
+    border: 2px dashed var(--primary);
+    background-color: rgba(105, 15, 207, 0.1);
+}
+
+.curriculum-test .curriculum-number {
+    background-color: var(--success);
+}
+
+/* Уроки */
+.lesson-content {
+    background-color: var(--surface);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.lesson-text {
+    margin: 25px 0;
+    font-size: 17px;
+    white-space: pre-wrap;
+}
+
+.examples-section {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: rgba(15, 23, 42, 0.5);
+    border-radius: var(--radius);
+}
+
+.example-buttons { display: flex; gap: 10px; margin-bottom: 15px; }
+.example-btn {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-light);
+    border-radius: 6px;
+    cursor: pointer;
+}
+.example-btn.active { background-color: var(--primary); color: white; border-color: var(--primary); }
+
+.code-block {
+    background-color: #0f172a;
+    color: #4ade80;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 14px;
+}
+
+.lesson-navigation { display: flex; justify-content: space-between; margin-top: 40px; }
+
+/* Тесты в уроках */
+.lesson-test-section {
+    margin: 40px 0;
+    padding: 30px;
+    background-color: rgba(105, 15, 207, 0.05);
+    border-radius: var(--radius);
+    border: 1px solid var(--primary);
+}
+
+.lesson-question { margin-bottom: 30px; }
+.lesson-question h4 { margin-bottom: 15px; color: var(--text); }
+
+.test-feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+.test-feedback.success { background-color: rgba(34, 197, 94, 0.2); color: #4ade80; border: 1px solid var(--success); }
+.test-feedback.error { background-color: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid var(--danger); }
+.test-feedback.warning { background-color: rgba(249, 115, 22, 0.2); color: #fb923c; border: 1px solid var(--secondary); }
+
+/* Редактор */
+.editor-container {
+    background-color: var(--surface);
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+.editor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+.code-input, .code-output {
+    width: 100%;
+    height: 350px;
+    background-color: #0f172a;
+    color: #4ade80;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    border: 1px solid var(--border);
+}
+.code-output { overflow-y: auto; white-space: pre-wrap; }
+
+/* Финальный Тест */
+.test-container {
+    background-color: var(--surface);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.progress-bar { height: 8px; background-color: var(--border); border-radius: 4px; margin: 20px 0; overflow: hidden; }
+.progress-fill { height: 100%; background-color: var(--primary); transition: width 0.3s ease; }
+
+.options-container { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.option {
+    padding: 16px;
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: rgba(15, 23, 42, 0.3);
+}
+.option:hover { border-color: var(--primary); background-color: rgba(105, 15, 207, 0.1); }
+.option.selected { border-color: var(--primary); background-color: var(--primary); color: white; }
+
+.results-score { text-align: center; margin-bottom: 40px; }
+.score-percentage { font-size: 64px; font-weight: bold; color: var(--primary); }
+
+.result-item { padding: 20px; border-radius: var(--radius); margin-bottom: 15px; border-left: 6px solid; }
+.result-item.correct { background-color: rgba(34, 197, 94, 0.1); border-color: var(--success); }
+.result-item.incorrect { background-color: rgba(239, 68, 68, 0.1); border-color: var(--danger); }
+
+/* Подвал */
+.footer {
+    background-color: var(--surface);
+    color: var(--text-light);
+    padding: 30px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+
+.footer p { margin: 0; font-size: 14px; }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 32px; }
+    .editor-grid { grid-template-columns: 1fr; }
+    .hero-buttons { flex-direction: column; }
+    .navbar .container { flex-direction: column; gap: 10px; }
+}
